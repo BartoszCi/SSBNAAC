@@ -1,0 +1,148 @@
+{
+    "class": "dataset",
+    "label": "09171: Production account and income generation, by industry, contents and quarter",
+    "source": "Statistics Norway",
+    "updated": "2021-02-12T07:00:00Z",
+    "id": [
+        "NACE",
+        "ContentsCode",
+        "Tid"
+    ],
+    "size": [
+        3,
+        3,
+        5
+    ],
+    "dimension": {
+        "NACE": {
+            "label": "industry",
+            "category": {
+                "index": {
+                    "nr23_6": 0,
+                    "pub2X01_02": 1,
+                    "pub2X03": 2
+                },
+                "label": {
+                    "nr23_6": "Total industry",
+                    "pub2X01_02": "Agriculture and forestry",
+                    "pub2X03": "Fishing and aquaculture"
+                }
+            }
+        },
+        "ContentsCode": {
+            "label": "contents",
+            "category": {
+                "index": {
+                    "Prob": 0,
+                    "Pin": 1,
+                    "BNPB": 2
+                },
+                "label": {
+                    "Prob": "Output at basic values. Current prices (NOK million)",
+                    "Pin": "Intermediate consumption. Current prices (NOK million)",
+                    "BNPB": "Value added at basic prices. Current prices (NOK million)"
+                },
+                "unit": {
+                    "Prob": {
+                        "base": "NOK million",
+                        "decimals": 0
+                    },
+                    "Pin": {
+                        "base": "NOK million",
+                        "decimals": 0
+                    },
+                    "BNPB": {
+                        "base": "NOK million",
+                        "decimals": 0
+                    }
+                }
+            },
+            "link": {
+                "describedby": [
+                    {
+                        "extension": {
+                            "Prob": "urn:ssb:conceptvariable:vardok:2007",
+                            "Pin": "urn:ssb:conceptvariable:vardok:1787",
+                            "BNPB": "urn:ssb:conceptvariable:vardok:1744"
+                        }
+                    }
+                ]
+            }
+        },
+        "Tid": {
+            "label": "quarter",
+            "category": {
+                "index": {
+                    "2019K4": 0,
+                    "2020K1": 1,
+                    "2020K2": 2,
+                    "2020K3": 3,
+                    "2020K4": 4
+                },
+                "label": {
+                    "2019K4": "2019K4",
+                    "2020K1": "2020K1",
+                    "2020K2": "2020K2",
+                    "2020K3": "2020K3",
+                    "2020K4": "2020K4"
+                }
+            }
+        }
+    },
+    "value": [
+        1590874,
+        1534042,
+        1355521,
+        1383458,
+        1535161,
+        761709,
+        732772,
+        663782,
+        664331,
+        737733,
+        829165,
+        801269,
+        691740,
+        719126,
+        797428,
+        10348,
+        9543,
+        9811,
+        19172,
+        10120,
+        5039,
+        4860,
+        9998,
+        6886,
+        4902,
+        5309,
+        4683,
+        -187,
+        12286,
+        5219,
+        30455,
+        29182,
+        24700,
+        23661,
+        27867,
+        17926,
+        14994,
+        14174,
+        16296,
+        18803,
+        12529,
+        14188,
+        10526,
+        7365,
+        9064
+    ],
+    "role": {
+        "time": [
+            "Tid"
+        ],
+        "metric": [
+            "ContentsCode"
+        ]
+    },
+    "version": "2.0"
+}
