@@ -3,7 +3,7 @@ import requests
 import datetime
 import re
 import json
-import collections
+from collections import namedtuple
 
 class SSBData():
     """Pull data from ssb.no and parse to user friendly format"""
@@ -49,10 +49,15 @@ class SSBData():
         return json.loads(raw_data.content)
 
     def _parse_date(self, date, freq):
-        repl = {'quarter': {'1': 1,
+        repl = {
+                'quarter': {
+                            '1': 1,
                             '2': 4, 
                             '3': 7, 
-                            '4': 10}}
+                            '4': 10
+                            }
+                }
+
         d_temp = date.split('K')
         return datetime.date(int(d_temp[0]), repl[freq][d_temp[1]], 1)
 
@@ -69,15 +74,20 @@ class SSBData():
 
     def iter_values(self):
         vals = self._content['value']
-        for val in vals:
-            yield val
+        yield from vals
 
     def serialize(self):
         idx = self.index
-        cols = self.iter_columns()
+        columns = self.iter_columns()
         vals = self.iter_values()
-        out = collections.defaultdict(list)
-        for col_name in cols:
-            for _ in idx:
-                out[col_name].append(next(vals))
-        return out
+        return {col_name: [next(vals) for _ in idx] for col_name in columns}
+
+    def iter_records(self):
+        columns = self.iter_columns()
+        vals = self.iter_values()
+        Rec = namedtuple('Record', ('index', 'column', 'value'))
+        
+        for col_name in columns:
+            for _, idx_val in self.index.items():
+                yield Rec(idx_val, col_name, next(vals))
+
